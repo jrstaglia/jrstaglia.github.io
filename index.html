@@ -16,13 +16,65 @@
 	</script>
 
 	
+
+<style>
+
+
+
+body {
+		text-align: center;
+		padding: 100px 0 0 0;
+		color: #fff;
+		background-image: url("pizza.png");
+}
+
+#loading {
+		-webkit-animation: rotation 3s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+		}
+}
+
+
+   #seconds {
+   color: #000;
+   font-size: 80px;
+   margin-top: 10px;
+   font-family: Montserrat,Arial,sans-serif;
+   background-color:white;
+   padding: 10px;
+   border-radius:6px;
+}
+
+
+
+</style>
+	
+	<title>Welcome to Totinos Pizza</title>
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135894806-1"></script>
+	<script>
+ 	 window.dataLayer = window.dataLayer || [];
+  	function gtag(){dataLayer.push(arguments);}
+ 	 gtag('js', new Date());
+ 	 gtag('config', 'UA-135894806-1');
+	</script>
+
+	
 </head>
 
 <body>
 	<body background="rect996.png">
 <img id="loading" src="https://www.totinos.com/wp-content/uploads/2018/08/Totinos-Homepage-CTA-PizzaRolls.png">
 		
-	<label id="seconds">0</label>
+<label id="seconds">0</label>
 
 		
 <script>
@@ -47,7 +99,8 @@ function pad(val) {
   }
 }
 
-</script>	
+</script>
+
 
   </body>
 </html>
