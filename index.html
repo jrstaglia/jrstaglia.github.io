@@ -22,103 +22,32 @@
 	<body background="rect996.png">
 <img id="loading" src="https://www.totinos.com/wp-content/uploads/2018/08/Totinos-Homepage-CTA-PizzaRolls.png">
 		
+	<label id="seconds">0</label>
+
 		
-		
-		 <center>
-         <ul class="countdown">
-            <li>
-               <span class="seconds">0</span>
-                  <p>
-                  Spins
-                  </p>
-            </li>
-         </ul>
-      </center>
-		
-	<script>
-		    $.fn.downCount = function (options, callback) {
-        var settings = $.extend({
-                date: null,
-                offset: null
-            }, options);
+<script>
 
-        // Save container
-        var container = this;
 
-        /**
-         * Change client's local date to match offset timezone
-         * @return {Object} Fixed Date object.
-         */
-        var currentDate = function () {
-            // get client's current date
-            var date = new Date();
+var secondsLabel = document.getElementById("seconds");
+var totalSeconds = 0;
+setInterval(setTime, 3000);
 
-            // turn date to utc
-            var utc = date.getTime() + (date.getTimezoneOffset() * 60000);
+function setTime() {
+  ++totalSeconds;
+  secondsLabel.innerHTML = pad(totalSeconds % Number.POSITIVE_INFINITY);
 
-            // set new Date object
-            var new_date = new Date(utc + (3600000*settings.offset))
-
-            return new_date;
-        };
-
-        /**
-         * Main downCount function that calculates everything
-         */
-var original_date = currentDate();
-var target_date = new Date('12/31/2020 12:00:00'); // Count up to this date
-
-function onButtonClick() {
-    original_date = currentDate();
 }
 
-function countdown () {
-        var current_date = currentDate(); // get fixed current date
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "" + valString;
+  } else {
+    return valString;
+  }
+}
 
-        // difference of dates
-        var difference = current_date - original_date;
+</script>	
 
-        if (current_date >= target_date) {
-            // stop timer
-            clearInterval(interval);
-
-            if (callback && typeof callback === 'function') callback();
-
-            return;
-        }
-
-        // basic math variables
-        var _second = 3000,
-            _minute = _second * Number.POSITIVE_INFINITY;
-
-        // calculate dates
-        var 
-            seconds = Math.floor((difference % _minute) / _second);
-
-
-
-
-            // set to DOM
-
-            container.find('.seconds').text(seconds);
-
-            container.find('.seconds_ref').text(ref_seconds);
-        };
-        
-        // start
-        var interval = setInterval(countdown, 1000);
-    };
-
-
-
-
-
-$(document).ready(function(){
-   $('.countdown').downCount();
-});
-
-	</script>
-		
-		
   </body>
 </html>
